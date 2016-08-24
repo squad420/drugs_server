@@ -20,10 +20,12 @@ class Pill(db.Model):
     def __repr__(self):
         return '<Name %r>' % self.name
 
-
-@app.route('/', methods=['GET', 'POST'])
-@app.route('/drugs', methods=['GET', 'POST'])
+@app.route('/', methods=['GET'])
 def home():
+    return "Drugster by Squad"
+
+@app.route('/all', methods=['GET'])
+def all():
     return render_template('index.html')
 
 
