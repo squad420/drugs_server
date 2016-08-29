@@ -2,10 +2,10 @@
 from flask import render_template
 
 from app import db, app
+import json
 
-
-class Pill(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+class Drugs_test1(db.Model):
+    drug_id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80))
     description = db.Column(db.String(120))
 
@@ -27,3 +27,7 @@ def all():
 @app.route('/squad')
 def squad():
     return render_template('base.html')
+
+@app.route('/test')
+def test():
+    return Drugs_test1.query.all()[0].name
